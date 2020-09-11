@@ -10,7 +10,7 @@ installBaseApps() {
   # Chrome
   sudo apt install -y gdebi
   wget -N https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -P ~/Downloads
-  sudo gdebi -n google-chrome-stable_current_amd64.deb
+  sudo gdebi -n ~/Downloads/google-chrome-stable_current_amd64.deb
   rm -f ~/Downloads/google-chrome-stable_current_amd64.deb
 
   sudo apt install -y \
@@ -19,7 +19,8 @@ installBaseApps() {
     gnome-tweak-tool \
     jq \
     python3-pip \
-    python3-venv
+    python3-venv \
+    wireshark
 }
 
 installVim() {
