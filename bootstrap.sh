@@ -148,7 +148,7 @@ installTerraform() {
 
 configureBashExports() {
   local script_dir=$(dirname "$0")
-  mv -f "$script_dir"/bash_exports ~/.bash_exports 
+  cp "$script_dir"/bash_exports ~/.bash_exports
 
   # Inspired by scm_breeze install.sh.
   local exec_string="source ~/.bash_exports"
