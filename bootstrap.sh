@@ -161,6 +161,17 @@ configureBashExports() {
   fi
 }
 
+configureSudoers() {
+  local exec_string="michael ALL=(ALL) NOPASSWD: /usr/sbin/openconnect"
+  if sudo grep -q "$exec_string" /etc/sudoers; then
+    echo "openconnect NOPASSWD access already added"
+  else
+    # https://stackoverflow.com/a/28382838
+    echo "$exec_string" | sudo EDITOR="tee -a" visudo
+    echo "openconnect NOPASSWD access added"
+  fi
+}
+
 mkdir -p ~/opt
 installBaseApps
 installVim
@@ -173,3 +184,4 @@ installScmBreeze
 installAwsCli
 installTerraform "0.13.2"
 configureBashExports
+configureSudoers
