@@ -5,6 +5,8 @@ $PATH:\
 ~/opt/helm:\
 ~/opt/jdk/bin:\
 ~/opt/kubectl:\
+~/opt/go/bin:\
 ~/opt/sbt/bin:\
-~/opt/terraform
+~/opt/terraform:\
+~/opt/terraform-docs:
 

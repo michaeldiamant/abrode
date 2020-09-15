@@ -147,6 +147,29 @@ installTerraform() {
   rm -f ~/Downloads/terraform_"$version"_linux_amd64.zip
 }
 
+installGo() {
+  local version="$1"
+  wget -N https://golang.org/dl/go"$version".linux-amd64.tar.gz -P ~/Downloads
+  rm -rf ~/opt/go-"${version}"
+  mkdir -p ~/opt/go-"${version}"
+  tar -xf ~/Downloads/go"${version}".linux-amd64.tar.gz -C ~/opt/go-"${version}" --strip-components 1
+  unlink ~/opt/go || true
+  ln -s ~/opt/go-"${version}" ~/opt/go
+  rm -f ~/Downloads/go"${version}".linux-amd64.tar.gz
+}
+
+installTerraformDocs() {
+  local version="$1"
+wget -N https://github.com/terraform-docs/terraform-docs/releases/download/v"$version"/terraform-docs-v"$version"-linux-amd64 -P ~/Downloads
+  rm -rf ~/opt/terraform-docs-"${version}"
+  mkdir -p ~/opt/terraform-docs-"${version}"
+  mv ~/Downloads/terraform-docs-v"${version}"-linux-amd64 ~/opt/terraform-docs-"${version}"/terraform-docs
+  chmod +x ~/opt/terraform-docs-"${version}"/terraform-docs
+  unlink ~/opt/terraform-docs || true
+  ln -s ~/opt/terraform-docs-"${version}" ~/opt/terraform-docs
+  rm -f ~/Downloads/terraform-docs-v"${version}"-linux-amd64
+}
+
 configureBashExports() {
   local script_dir=$(dirname "$0")
   cp "$script_dir"/bash_exports ~/.bash_exports
@@ -173,6 +196,7 @@ configureSudoers() {
 }
 
 mkdir -p ~/opt
+
 installBaseApps
 installVim
 installJdk "265b01"
@@ -183,5 +207,7 @@ installIntellij
 installScmBreeze
 installAwsCli
 installTerraform "0.13.2"
+installTerraformDocs "0.10.0-rc.1"
+installGo "1.15.2"
 configureBashExports
 configureSudoers
