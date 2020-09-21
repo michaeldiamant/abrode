@@ -195,6 +195,11 @@ configureSudoers() {
   fi
 }
 
+configureOpenSsl() {
+  # https://askubuntu.com/questions/1231799/certificate-error-after-upgrade-to-20-04/1255951#1255951
+  sudo cp openssl.cnf /etc/ssl/openssl.cnf
+}
+
 mkdir -p ~/opt
 
 installBaseApps
@@ -211,3 +216,4 @@ installTerraformDocs "0.10.0-rc.1"
 installGo "1.15.2"
 configureBashExports
 configureSudoers
+configureOpenSsl
