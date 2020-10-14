@@ -15,6 +15,7 @@ installBaseApps() {
 
   sudo apt install -y \
     curl \
+    docker.io \
     git \
     gnome-tweak-tool \
     jq \
