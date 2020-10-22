@@ -21,6 +21,7 @@ installBaseApps() {
     jq \
     python3-pip \
     python3-venv \
+    tshark \
     wireshark
 }
 
