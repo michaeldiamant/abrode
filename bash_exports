@@ -2,6 +2,7 @@ export JAVA_HOME=~/opt/jdk
 export SBT_OPTS="-Xmx2G -Xss2M"
 export PATH=\
 $PATH:\
+~/opt/argo-rollouts:\
 ~/opt/helm:\
 ~/opt/jdk/bin:\
 ~/opt/kubectl:\

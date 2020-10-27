@@ -202,6 +202,13 @@ configureOpenSsl() {
   sudo cp openssl.cnf /etc/ssl/openssl.cnf
 }
 
+installArgoRollouts() {
+  wget -N https://github.com/argoproj/argo-rollouts/releases/latest/download/kubectl-argo-rollouts-linux-amd64 -P ~/Downloads
+  mkdir -p ~/opt/argo-rollouts
+  mv ~/Downloads/kubectl-argo-rollouts-linux-amd64 ~/opt/argo-rollouts/kubectl-argo-rollouts
+  chmod +x ~/opt/argo-rollouts/kubectl-argo-rollouts
+}
+
 mkdir -p ~/opt
 
 installBaseApps
@@ -209,6 +216,7 @@ installVim
 installJdk "265b01"
 installSbt "1.3.13"
 installKubectl
+installArgoRollouts
 installHelm "3.3.1"
 installIntellij
 installScmBreeze
