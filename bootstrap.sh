@@ -22,6 +22,7 @@ installBaseApps() {
     python3-pip \
     python3-venv \
     tshark \
+    vlc \
     wireshark
 }
 
