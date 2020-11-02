@@ -1,0 +1,9 @@
+[Unit]
+Description=Remaps Dell Latitude 5411 keys
+
+[Service]
+User=michael
+ExecStart=/usr/bin/xkbcomp /home/michael/.xkbmap ":0"
+
+[Install]
+WantedBy=multi-user.target
