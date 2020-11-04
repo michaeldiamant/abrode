@@ -187,6 +187,20 @@ configureBashExports() {
   fi
 }
 
+configureBashAliases() {
+  local script_dir=$(dirname "$0")
+  cp "$script_dir"/bash_aliases ~/.bash_aliases
+
+  # Inspired by scm_breeze install.sh.
+  local exec_string="source ~/.bash_aliases"
+  if grep -q "$exec_string" ~/.bashrc; then
+    echo "bash_aliases already added to ~/.bashrc"
+  else
+    printf "\n$exec_string\n" >> ~/.bashrc
+    echo "bash_aliases added to ~/.bashrc"
+  fi
+}
+
 configureSudoers() {
   local exec_string="michael ALL=(ALL) NOPASSWD: /usr/sbin/openconnect"
   if sudo grep -q "$exec_string" /etc/sudoers; then
@@ -225,6 +239,7 @@ installAwsCli
 installTerraform "0.13.2"
 installTerraformDocs "0.10.0-rc.1"
 installGo "1.15.2"
+configureBashAliases
 configureBashExports
 configureSudoers
 configureOpenSsl
