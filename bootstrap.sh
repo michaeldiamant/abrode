@@ -237,7 +237,7 @@ installIntellij
 installScmBreeze
 installAwsCli
 installTerraform "0.13.2"
-installTerraformDocs "0.10.0-rc.1"
+installTerraformDocs "0.10.1"
 installGo "1.15.2"
 configureBashAliases
 configureBashExports
