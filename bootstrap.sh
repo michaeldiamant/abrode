@@ -224,9 +224,16 @@ installArgoRollouts() {
   chmod +x ~/opt/argo-rollouts/kubectl-argo-rollouts
 }
 
+installMainline() {
+  sudo add-apt-repository -y ppa:cappelikan/ppa
+  sudo apt update
+  sudo apt install mainline
+}
+
 mkdir -p ~/opt
 
 installBaseApps
+installMainline
 installVim
 installJdk "265b01"
 installSbt "1.3.13"
