@@ -96,7 +96,7 @@ installHelm() {
   local version="$1"
   wget -N https://get.helm.sh/helm-v"${version}"-linux-amd64.tar.gz -P ~/Downloads
   mkdir -p ~/opt/helm-"${version}"
-  tar -xf helm-v"${version}"-linux-amd64.tar.gz -C ~/opt/helm-"${version}" --strip-components 1
+  tar -xf ~/Downloads/helm-v"${version}"-linux-amd64.tar.gz -C ~/opt/helm-"${version}" --strip-components 1
   unlink ~/opt/helm || true
   ln -s ~/opt/helm-"${version}" ~/opt/helm
   rm -f ~/Downloads/helm-v"${version}"-linux-amd64.tar.gz
