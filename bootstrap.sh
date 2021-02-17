@@ -23,7 +23,8 @@ installBaseApps() {
     python3-venv \
     tshark \
     vlc \
-    wireshark
+    wireshark \
+    yamllint
 }
 
 installVim() {
