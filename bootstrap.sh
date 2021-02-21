@@ -27,6 +27,10 @@ installBaseApps() {
     yamllint
 }
 
+installPipApps() {
+  pip3 install yq
+}
+
 installVim() {
   sudo apt install -y vim
   sudo update-alternatives --set editor /usr/bin/vim.basic
@@ -234,6 +238,7 @@ installMainline() {
 mkdir -p ~/opt
 
 installBaseApps
+installPipApps
 installMainline
 installVim
 installJdk "265b01"
