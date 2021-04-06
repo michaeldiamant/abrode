@@ -28,7 +28,9 @@ installBaseApps() {
 }
 
 installPipApps() {
-  pip3 install yq
+  pip3 install \
+    pytest \
+    yq
 }
 
 installVim() {
