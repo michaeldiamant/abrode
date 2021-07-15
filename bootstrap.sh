@@ -237,6 +237,17 @@ installMainline() {
   sudo apt install -y mainline
 }
 
+installGitXargs() {
+  local version="$1"
+
+  wget -N https://github.com/gruntwork-io/git-xargs/releases/download/v"${version}"/git-xargs_linux_amd64 -P ~/Downloads
+  mkdir -p ~/opt/git-xargs-"${version}"
+  mv ~/Downloads/git-xargs_linux_amd64 ~/opt/git-xargs-"${version}"/git-xargs
+  unlink ~/opt/git-xargs || true
+  ln -s ~/opt/git-xargs-"${version}" ~/opt/git-xargs
+  chmod +x ~/opt/git-xargs/git-xargs
+}
+
 mkdir -p ~/opt
 
 installBaseApps
@@ -254,6 +265,7 @@ installAwsCli
 installTerraform "0.13.2"
 installTerraformDocs "0.10.1"
 installGo "1.15.2"
+installGitXargs "0.0.11"
 configureBashAliases
 configureBashExports
 configureSudoers

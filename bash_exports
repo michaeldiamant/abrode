@@ -4,10 +4,11 @@ export PATH=\
 $PATH:\
 ~/.local/bin:\
 ~/opt/argo-rollouts:\
+~/opt/git-xargs:\
+~/opt/go/bin:\
 ~/opt/helm:\
 ~/opt/jdk/bin:\
 ~/opt/kubectl:\
-~/opt/go/bin:\
 ~/opt/sbt/bin:\
 ~/opt/terraform:\
 ~/opt/terraform-docs:
