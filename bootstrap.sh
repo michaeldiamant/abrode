@@ -262,7 +262,7 @@ installHelm "3.3.1"
 installIntellij
 installScmBreeze
 installAwsCli
-installTerraform "0.13.2"
+installTerraform "1.0.2"
 installTerraformDocs "0.10.1"
 installGo "1.15.2"
 installGitXargs "0.0.11"
